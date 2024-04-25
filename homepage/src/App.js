@@ -17,8 +17,8 @@ function App() {
                 app_name: 'Go Auth Server',
             },
             {
-                app_id: 'my-app-3',
-                app_name: 'My app 3',
+                app_id: 'fortune-teller',
+                app_name: 'Fortune Teller',
             },
 
         ]

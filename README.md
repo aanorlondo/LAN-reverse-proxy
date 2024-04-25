@@ -94,7 +94,7 @@ repo
 │       │       ├── carousel
 │       │       │   ├── clipboards-app.png
 │       │       │   ├── go-auth.png
-│       │       │   └── my-app-3.png
+│       │       │   └── fortune-teller.jpg
 │       │       ├── footer
 │       │       │   ├── github_logo.png
 │       │       │   ├── nginx_logo.png
