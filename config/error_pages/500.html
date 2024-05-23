@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erreur 500</title>
+    <style>
+      :root {
+        --color-background: #beeb9f;
+        --color-bug: #00a388;
+        --color-text: #00a388;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+        background: var(--color-background);
+      }
+
+      .error-code {
+        display: flex;
+        grid-gap: 4vw;
+        position: relative;
+        border: 0;
+        background: none;
+        font-family: "Nunito", sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        white-space: nowrap;
+        padding: 4vw;
+        border-radius: 1vw;
+        transition: all 250ms ease;
+      }
+
+      .error-code:after {
+        content: "Il semble que tu aies trouvé un bug...";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4vw;
+        color: var(--color-text);
+        opacity: 0;
+        transition: all 500ms ease;
+        transition-delay: 1000ms;
+      }
+
+      .error-code:hover:after {
+        opacity: 1;
+      }
+
+      .error-code:hover .cell.filled {
+        transform: rotate(var(--rotate-deg));
+      }
+
+      .error-code:hover .number {
+        grid-gap: 2vw;
+      }
+
+      .error-code:hover .bug {
+        transform: translateY(-200vh);
+        transition-delay: 500ms;
+      }
+
+      .error-code:hover .bug:before {
+        top: -0.5vw;
+      }
+
+      .error-code:hover .bug:after {
+        left: -0.75vw;
+        right: -0.75vw;
+        height: 1.5vw;
+      }
+
+      .number {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        transition: all 500ms ease;
+        grid-gap: 0.25vw;
+        margin: auto 2vw;
+      }
+
+      .cell.filled {
+        transition: all 500ms ease;
+      }
+
+      .bug {
+        background: var(--color-bug);
+        transition: transform 4000ms ease;
+        width: 2.25vw;
+        height: 2.5vw;
+        position: relative;
+        border-radius: 100%;
+        transition-delay: 0;
+      }
+
+      .bug:before {
+        content: "";
+        height: 1.5vw;
+        width: 1.5vw;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0.375vw;
+        background: var(--color-bug);
+        border-radius: 100%;
+        z-index: -1;
+        transition: all 1000ms ease;
+      }
+
+      .bug:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0.5vw;
+        right: 0.5vw;
+        bottom: 0.5vw;
+        height: 0;
+        transition: all 250ms ease;
+        animation: infinite skitter 100ms ease;
+        background: top left / 100% 100%
+            linear-gradient(
+              transparent,
+              transparent 45%,
+              var(--color-bug) 45%,
+              var(--color-bug) 55%,
+              transparent 55%
+            ),
+          top left / 100% 100%
+            linear-gradient(
+              to bottom right,
+              transparent,
+              transparent 45%,
+              var(--color-bug) 45%,
+              var(--color-bug) 55%,
+              transparent 55%
+            ),
+          top left / 100% 100%
+            linear-gradient(
+              to bottom left,
+              transparent,
+              transparent 45%,
+              var(--color-bug) 45%,
+              var(--color-bug) 55%,
+              transparent 55%
+            );
+      }
+
+      @keyframes skitter {
+        0%,
+        100% {
+          transform: rotate(-35deg);
+        }
+        50% {
+          transform: rotate(35deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="error-code">
+      <div class="number five">
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+        <div class="cell empty"></div>
+        <div class="cell empty"></div>
+
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+
+        <div class="cell empty"></div>
+        <div class="cell empty"></div>
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+      </div>
+      <div class="number zero">
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+      </div>
+      <div class="number zero">
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+
+        <div class="cell empty"></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell filled"><div class="bug"></div></div>
+        <div class="cell empty"></div>
+      </div>
+    </button>
+    <script>
+      document.querySelectorAll(".cell.filled").forEach((cell, index) => {
+        cell.style.setProperty(
+          "--rotate-deg",
+          `${(360 / 24) * (index + 1)}deg`
+        );
+      });
+    </script>
+  </body>
+</html>

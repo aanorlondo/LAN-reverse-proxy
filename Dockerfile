@@ -10,10 +10,14 @@ RUN rm -rf /app/homepage/node_modules
 # Stage 2: Setup Nginx server
 FROM nginx:alpine AS production-stage
 
+# Configure SSL and routes
 COPY config/ssl/certificate.crt /etc/nginx/ssl/certificate.crt
 COPY config/ssl/private.key /etc/nginx/ssl/private.key
 COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build-stage /app/build /usr/share/nginx/html
+
+# Copy error pages to Nginx html directory
+COPY config/error_pages/ /usr/share/nginx/html/
 
 EXPOSE 80
 EXPOSE 443
